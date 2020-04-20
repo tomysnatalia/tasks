@@ -2,9 +2,11 @@ package com.crud.tasks.mapper;
 
 import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 @Component
@@ -23,6 +25,7 @@ public class TaskMapper {
                 task.getTitle(),
                 task.getContent());
     }
+
 
     public List<TaskDto> mapToTaskDtoList(final List<Task> taskList) {
         return taskList.stream()
