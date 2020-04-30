@@ -18,19 +18,13 @@ apply plugin: 'io.spring.dependency-management'
 //apply plugin: 'war'
 
 
-
-
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
-
 }
-
-
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
@@ -39,6 +33,7 @@ dependencies {
 	compile('mysql:mysql-connector-java')
 	//compile('org.postgresql:postgresql')
 
+	compileOnly('org.projectlombok:lombok')
 	annotationProcessor('org.projectlombok:lombok:1.18.12')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
