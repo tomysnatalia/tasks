@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=SC2154
-export CATALINA_HOME=/Applications/apache-tomcat-9.0.34/webapps
+export CATALINA_HOME=/Applications/apache-tomcat-9.0.34
 
 stop_tomcat()
 {
