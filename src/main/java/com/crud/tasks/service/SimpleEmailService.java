@@ -43,8 +43,6 @@ public class SimpleEmailService {
 
        // Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
 
-        //ofNullable(mail.getToCc()).isPresent();
-        //LOGGER.info("no email address");
 
         return mailMessage;
     }
