@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
+import static java.util.Optional.ofNullable;
+
 @Service
 public class SimpleEmailService {
 
@@ -23,6 +25,7 @@ public class SimpleEmailService {
         LOGGER.info("Starting email preparation ...");
         try{
             SimpleMailMessage mailMessage = createMailMessage(mail);
+            if (mail.getToCc() == null || mail.getToCc() != null)
             javaMailSender.send(mailMessage);
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
@@ -36,7 +39,12 @@ public class SimpleEmailService {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
         mailMessage.setCc(mail.getToCc());
-        Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
+
+
+       // Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
+
+        //ofNullable(mail.getToCc()).isPresent();
+        //LOGGER.info("no email address");
 
         return mailMessage;
     }
