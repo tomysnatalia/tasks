@@ -1,7 +1,6 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
-import jdk.internal.jline.internal.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
@@ -40,7 +39,6 @@ public class SimpleEmailService {
         if (mail.getToCc() == null || mail.getToCc() != null) {
             javaMailSender.send(mailMessage);
         }
-
         return mailMessage;
         }
     }
