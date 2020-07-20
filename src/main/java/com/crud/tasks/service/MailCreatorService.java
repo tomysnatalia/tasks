@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class MailCreatorService {
@@ -27,7 +25,7 @@ public class MailCreatorService {
     public String buildTrelloCardEmail(String message){
         Context context = new Context();
         context.setVariable("message", message);
-        context.setVariable("tasks_url", "http://localhost:8888/crud");
+        context.setVariable("tasks_url", "http://localhost:8080/crud");
         context.setVariable("button", "Visit website");
         context.setVariable("admin_name", adminConfig.getAdminName());
         context.setVariable("company_name", companyDetails.getCompanyName());
