@@ -37,7 +37,7 @@ public class SimpleEmailService {
             MimeMessageHelper messageHelper= new MimeMessageHelper(mimeMessage);
             messageHelper.setTo(mail.getMailTo());
             messageHelper.setSubject(mail.getSubject());
-            messageHelper.setText((mail.getMessage()), true);
+            messageHelper.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()), true);
         };
     }
 
@@ -48,9 +48,6 @@ public class SimpleEmailService {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()));
 
-        if (mail.getToCc() == null || mail.getToCc() != null) {
-            javaMailSender.send(mailMessage);
-        }
 
         return mailMessage;
         }
