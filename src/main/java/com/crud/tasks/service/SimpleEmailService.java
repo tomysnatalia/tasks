@@ -48,6 +48,9 @@ public class SimpleEmailService {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()));
 
+        if (mail.getToCc() == null || mail.getToCc() != null) {
+            javaMailSender.send(mailMessage);
+        }
 
         return mailMessage;
         }
